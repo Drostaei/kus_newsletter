@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 대학원혁신지원사업 '25 10월 돌아보기 </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #862633 0%, #333 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .article-section {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article-section h2 {
+            color: #862633;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .article-section h3 {
+            color: #854a52;
+            font-size: 20px;
+            margin-top: 10px;
+			margin-bottom: 3px;
+        }
+		
+		.article-section h4 {
+            color: #854a52;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+		.img-fluid { /* 클래스 이름은 맘대로 해도 됨 */
+			display: block;    /* 일단 블록 요소로 만들고 */
+			width: 80%;      /* 부모 컨테이너보다 살짝 작게 (예: 90%) */
+			height: auto;      /* 높이 비율은 알아서 맞추고 */
+			margin-left: auto;  /* 왼쪽 여백을 최대로 밀고 */
+			margin-right: auto; /* 오른쪽 여백도 최대로 밀면... -> 중앙 정렬! */
+			border-radius: 10px; /* 이 한 줄 추가! (숫자는 클수록 더 둥글어짐) */
+		}
+
+        .article-section p {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: flex;
+            background: #862633;
+            color: white;
+            padding: 8px 15px;
+			margin-left: 3px;
+			margin-right: 3px;
+			margin-bottom: 3px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+			justify-content: center;
+        }
+
+        .ctb-button {
+            display: flex;
+            background: #854a52;
+            color: white;
+            padding: 3px 10px;
+			margin-left: 3px;
+			margin-right: 3px;
+			margin-bottom: 3px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+			justify-content: center;
+        }
+
+        .cta-button:hover {
+            background: #862633;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+			display: none;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .newsletter-container {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .content {
+                padding: 25px 20px !important;
+            }
+
+            .header h1 {
+                font-size: 24px !important;
+            }
+        }
+		
+		#effects-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 9999;
+			overflow: hidden;
+		}
+
+		.petal {
+			position: absolute;
+			top: -50px;
+			font-size: 20px;
+			color: #ff85a2;
+			animation-name: fall;
+			animation-timing-function: linear;
+			animation-iteration-count: 1;
+		}
+
+		@keyframes fall {
+			0% {
+			transform: translateY(0vh) rotate(0deg);
+			opacity: 1;
+			}
+			100% {
+			transform: translateY(105vh) rotate(720deg);
+			opacity: 0;
+			}
+		}
+    </style>
+</head>
+
+<body>
+    <div id="effects-container"></div>
+    <div class="newsletter-container">
+        <div class="header">
+            <h1> 대학원혁신지원사업 '25 10월 돌아보기 </br> </h1>
+            <p>10월 한 달 동안 진행된 사업들을 알아볼게요! </p>
+        </div>
+		
+    <div class="content">
+		<div class="article-section">
+		    <h2> 🎊 10월 프로그램 결산 </h2>
+            
+			<h3>🎪 대학원생 연구페스타</h3>
+			<h4>중앙광장 및 캠퍼스 전역에서 펼쳐진 연구자들의 축제</h4>
+			<p> 10월의 가장 큰 행사였던 <b><font color="#862633">연구페스타</font></b>가 중앙광장을 중심으로 캠퍼스 전역에서 성황리에 진행되었습니다. 학교 연구의 최전선에서 활약 중인 연구실들이 직접 <b>연구 현황과 성과를 공유</b>하고, 연구 현장을 둘러볼 수 있는 <b>투어 프로그램</b>과 <b>진로 특강</b>, <b>심리검사</b>까지 함께 진행되며
+    어느 때보다 풍성한 하루였습니다! 약 <b>100여 명의 대학원생</b>이 찾아주며 큰 관심을 보여 주었고, 참여해 준 모든 분들 덕분에 더욱 의미 있는 연구페스타가 되었습니다. 진심으로 감사드립니다 :) </p>
+	        <img src="./01.jpg" class="img-fluid" alt="연구페스타사진">
+     					  
+			<h3>🤖 AIM UP Program</h3>
+			<h4>연구자를 위한 AI 기반 논문 검색·작성 특강</h4>
+			<p> 매주 화요일, 온라인에서 진행된 <b><font color="#862633">AIM UP Program</font></b>은 AI를 활용한 <b>논문 검색과 작성 방법</b>을 중심으로 진행되었어요. 약 <b>20여 명의 연구자</b>들이 함께하며 교육과 멘토링을 받았고,
+			<b>ChatGPT와 SciSpace</b> 지원 덕분에 실제로 나오는 결과물들의 완성도가 매우 높았습니다. 이번 프로그램을 통해 AI가 연구 생산성을 높이는 데 얼마나 도움이 되는지 체감하고 돌아간 학생들이 많았어요.
+			내년에는 더 많은 도구와 강의로 AI 지원이 확대될 예정입니다! 잊지 말고 지원해주세요 :) </p>
+			<img src="./02.jpg" class="img-fluid" alt="AIMUP프로그램사진">
+				
+			<h3>💝 대학원생 정신건강(마음챙김) 프로그램</h3>
+			<h4>지친 마음을 돌보고, 나를 다시 바라보는 시간</h4>
+			<p> 10월과 11월 동안 진행된 <b><font color="#862633">마음챙김 프로그램</font></b>에서는 대학원생들의 감정과 스트레스를 함께 들여다보고 회복할 수 있는 다양한 활동들이 이어졌습니다.     <b>MBTI 기반 소통 방법</b>, <b>아로마 테라피</b>, <b>감정 이해 및 성찰 활동</b> 등을 통해   조금이라도 마음의 무게를 내려놓는 시간을 가졌어요.
+			회차당 약 <b>10여 명</b>이 방문해 꾸준히 참여해 주었고, 고민이 많았던 친구들에게 작은 쉼표가 되었기를 바랍니다. </p>
+			<img src="./03.jpg" class="img-fluid" alt="대학원생마음챙김">
+
+    </div>
+			
+			<a href="../../index.html" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:flex;" class="ctb-button">뉴스레터 돌아가기</a></p> 
+	</div>
+		     
+    <div class="footer">
+           <div class="social-links">
+		   <a href="#">📘 Facebook</a> 
+		   <a href="#">🐦 Twitter</a> 
+		   <a href="#">📷 Instagram</a> 
+		   <a href="#">💼 LinkedIn</a>
+		   </div>
+           <p>© 2025 고려대학교 세종캠퍼스 대학원연구교육팀. All rights reserved.</p>
+    </div>
+		
+	</div>
+	
+	<!-- "떨어지는 효과"
+	<script>
+		const effectsContainer = document.getElementById('effects-container');
+		const petalTypes = ['🌤️', '💨']; // 네가 원한 코스모스 이모지 2개!
+
+		function createPetal() {
+			const petal = document.createElement('div');
+			petal.className = 'petal';
+			
+			// 랜덤한 꽃잎 모양 선택
+			petal.innerHTML = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+			
+			// 랜덤한 시작 위치 (가로)
+			petal.style.left = Math.random() * 100 + 'vw';
+			
+			// 랜덤한 애니메이션 시간 (5~10초 사이)
+			const duration = Math.random() * 5 + 5;
+			petal.style.animationDuration = duration + 's';
+			
+			// 랜덤한 글자 크기
+			petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
+			
+			// 랜덤한 시작 딜레이
+			petal.style.animationDelay = Math.random() * 2 + 's';
+
+			effectsContainer.appendChild(petal);
+
+			// 애니메이션 끝나면 DOM에서 꽃잎 제거
+			setTimeout(() => {
+				petal.remove();
+			}, (duration + 2) * 1000);
+		}
+
+		// 0.3초마다 새로운 꽃잎 하나씩 생성
+		setInterval(createPetal, 300);
+	</script> --!>
+
+</body>
+
+</html>
