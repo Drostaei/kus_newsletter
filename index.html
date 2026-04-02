@@ -23,6 +23,69 @@
             margin: 0 auto;
             background: #ffffff;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* --- 한/영 토글 스위치 디자인 --- */
+        .lang-toggle-wrapper {
+            text-align: right;
+            /* 위, 양옆, 아래 여백을 조정하여 헤더와의 간섭을 해결했습니다 */
+            padding: 20px 20px 15px; 
+            background: #ffffff;
+        }
+
+        .lang-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #862633;
+            vertical-align: middle;
+            margin: 0 8px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+            vertical-align: middle;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #862633;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
         }
 
         .header {
@@ -42,7 +105,6 @@
             padding: 40px 30px;
         }
         
-        /* 수정된 도입부 텍스트 스타일: 왼쪽 정렬 적용 */
         .intro-text {
             text-align: left;
             margin-bottom: 35px;
@@ -100,23 +162,18 @@
             transition: all 0.3s ease;
         }
 
-        .ctb-button {
+        .kakao-button {
             display: inline-block;
-            background: #854a52;
-            color: white;
-            padding: 3px 10px;
-			margin-left: 3px;
-			margin-right: 3px;
-			margin-bottom: 3px;
+            background: #FEE500;
+            color: #3A1D1D;
+            padding: 8px 15px;
+            margin-left: 3px;
+            margin-right: 3px;
+            margin-bottom: 3px;
             text-decoration: none;
-            border-radius: 20px;
+            border-radius: 25px;
             font-weight: bold;
             transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: #862633;
-            transform: translateY(-2px);
         }
 
         .footer {
@@ -125,18 +182,6 @@
             text-align: center;
             padding: 25px;
             font-size: 14px;
-        }
-
-        .social-links {
-            margin: 20px 0;
-			display: none;
-        }
-
-        .social-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
         }
 
         @media screen and (max-width: 600px) {
@@ -176,14 +221,8 @@
 		}
 
 		@keyframes fall {
-			0% {
-			transform: translateY(0vh) rotate(0deg);
-			opacity: 1;
-			}
-			100% {
-			transform: translateY(105vh) rotate(720deg);
-			opacity: 0;
-			}
+			0% { transform: translateY(0vh) rotate(0deg); opacity: 1; }
+			100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
 		}
     </style>
 </head>
@@ -191,126 +230,215 @@
 <body>
     <div id="effects-container"></div>
     <div class="newsletter-container">
-        <div class="header">
-            <h1> 고려대학교 세종캠퍼스 <br> 대학원연구교육팀 뉴스레터 '26-4월호 </br> </h1>
-            <p> 따뜻한 봄바람과 함께 시작되는 새 학기, 힘찬 발걸음을 밀어줄 소식을 안내합니다🌸 </p>
-        </div>
-		
-    <div class="content">
-
-        <div class="intro-text">
-            안녕하세요, 대학원연구교육팀입니다. 봄기운이 완연한 4월이에요! 이번 뉴스레터에는 새학기답게 여러분의 연구 역량 강화부터 진로 탐색, 그리고 마음 건강까지 알뜰하게 챙길 수 있는 다양한 지원 사업들을 가득 담았습니다. <br><br>
-            아래의 프로그램 외에도  <strong>"우리에게 딱 필요한 이런 프로그램도 있었으면 좋겠다!"</strong> 하는 반짝이는 아이디어가 있으신가요? 언제든 편하게 의견을 들려주세요. 대학원생 여러분의 목소리에 귀 기울여서 꼭 필요한 프로그램들도 준비할게요😊<br>
-            <br>
-			자, 그럼 <strong>새 학기 지원 프로그램</strong>들을 함께 살펴볼까요? 🚀
-        </div>
         
-        <div class="article-section">
-			<h2> ✈️ 대학원생 국제화 역량 지원 </h2>
-			<h3> 글로벌 연구 무대로의 도약, 디딤 프로그램! </h3>
-			<h4> 해외 학술대회 발표 및 중·단기 연수 지원 (최대 500만원) </h4>
-			<p>
-			<b>국제화 활동을 계획 중인 대학원생(수료등록생 포함) 여러분을 응원합니다!</b> <br>
-			국제 학술대회 발표나 전시회 출품, 혹은 해외 대학 및 연구기관과의 공동연구를 위한 <b><font color="#862633">중·단기 연수(15일 미만)</font></b>를 준비하고 계시나요? 
-			<b><font color="#862633">항공료, 숙박비, 등록비</font></b>에 한해 <b><font color="#862633">1인당 최대 5,000,000원</font></b>까지 아낌없이 지원해 드립니다. 양식을 작성하여 이메일로 간편하게 신청해 보세요! 
-			</p>
-			<a href="https://research.korea.ac.kr/front/board/22/post/145?" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">디딤 프로그램 안내</a>
-		</div>
-
-        <div class="article-section">
-			<h2> 🌸 상반기 심리지원 및 마음챙김 </h2>
-			<h3> 연구 스트레스는 비우고, 긍정 에너지는 채워요 </h3>
-			<h4> 샌드위치와 함께하는 나만의 힐링 타임 </h4>
-			<p>
-			바쁜 학업 속에서도 내 마음을 돌보는 시간은 꼭 필요합니다. <br>
-			올해 상반기에는 <b><font color="#862633">DISC 행동유형 분석(4/9)</font></b>, 오감을 치유하는 <b><font color="#862633">핸드메이드 허브볼 제작(5/7)</font></b>, 그리고 집중력을 높여줄 <b><font color="#862633">나의 힐링 아이콘 만들기(6/11)</font></b> 프로그램이 준비되어 있습니다. 각 회차별로 <b><font color="#862633">맛있는 점심 샌드위치</font></b>도 함께 제공되니, 잠시 연구실에서 벗어나 달콤한 휴식을 즐겨보세요!
-            </p>
-			<a href="https://forms.gle/YB75CWjgRrCY7evR9" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">마음챙김 프로그램 신청하기</a>
+        <div class="lang-toggle-wrapper">
+            <span class="lang-label" id="label-ko">KOR</span>
+            <label class="switch">
+                <input type="checkbox" id="lang-switch" onchange="toggleLanguage()">
+                <span class="slider"></span>
+            </label>
+            <span class="lang-label" style="color: #ccc;" id="label-en">ENG</span>
         </div>
 
-        <div class="article-section">
-			<h2> 💡 실전 창업 마스터 프로그램 </h2>
-			<h3> 내 연구와 아이디어가 현실이 되는 창업 특강 </h3>
-			<h4> 배민 상품권 100% 당첨 이벤트 진행 중! </h4>
-			<p>
-            4월부터 10월까지, <b><font color="#862633">총 4회차의 창업 역량 강화 특강</font></b>이 열립니다. <br>
-            로컬크리에이터부터 기술거래, 지식재산권(IP) 활용 전략까지! 창업에 관심 있는 대학원생이라면 누구나 참여 가능합니다. 특히, <b><font color="#862633">3회 이상 수강하고 만족도 조사에 참여</font></b>하시면 <b><font color="#862633">배달의민족 1만 원 상품권이 100% 지급</b></font>되니 절대 놓치지 마세요!
-            </p>
-			<a href="https://forms.gle/tjrj9icQM2NCEBGQ7" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">실전 창업 마스터 프로그램 신청하기</a>
-        </div>
-		
-        <div class="article-section">
-			<h2> 🧪 연구역량 활성화 지원 프로그램 </h2>
-            <h3> 융복합 연구부터 논문 교정, 우수논문 경진대회까지 </h3>
-			<h4> 여러분의 빛나는 연구 성과를 든든하게 뒷받침합니다 </h4>
-			<p> 대학원생 여러분의 학문적 성장을 위해 세 가지 강력한 지원 프로그램이 진행 중입니다. </p>
-            <ul>
-                <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>융복합 연구그룹:</b> 다른 전공의 학생과 팀(3인 이상)을 이루어 시너지를 내보세요! <b><font color="#862633">최대 200만 원</font></b>을 지원합니다. 지원기간이 4월 6일까지로 연장했으니 빨리 신청하세요!</li>
-                <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>원문 교정 지원:</b> 국제학술지(SCIE, SSCI 등) 게재 성공의 첫걸음! 1편당 <b><font color="#862633">최대 30만 원</font></b>의 영어 논문 교정 비용을 지원합니다.</li>
-                <li style="margin-left: 20px; font-size: 15px; margin-bottom: 15px;"><b>우수논문 경진대회:</b> 숨어있는 내 논문을 뽐내고 <b><font color="#862633">최대 100만 원</font></b>의 상금에 도전하세요!</li>
-            </ul>
+        <div id="content-ko">
+            <div class="header">
+                <h1> 고려대학교 세종캠퍼스 <br> 대학원연구교육팀 뉴스레터 '26-4월호 </br> </h1>
+                <p> 따뜻한 봄바람과 함께 시작되는 새 학기, 힘찬 발걸음을 밀어줄 소식을 안내합니다🌸 </p>
+            </div>
             
-			<a href="https://research.korea.ac.kr/front/board/22/post/133?" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">융복합 연구그룹 안내</a>
-			<a href="https://research.korea.ac.kr/front/board/22/post/131?" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">논문 원문 교정 지원 안내</a>
-			<a href="https://research.korea.ac.kr/front/board/22/post/132?" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">우수논문 경진대회 안내</a>
-		</div>
+            <div class="content">
+                <div class="intro-text">
+                    안녕하세요, 대학원연구교육팀입니다. 봄기운이 완연한 4월이에요! 이번 뉴스레터에는 새학기답게 여러분의 연구 역량 강화부터 진로 탐색, 그리고 마음 건강까지 알뜰하게 챙길 수 있는 다양한 지원 사업들을 가득 담았습니다. <br><br>
+                    아래의 프로그램 외에도  <strong>"우리에게 딱 필요한 이런 프로그램도 있었으면 좋겠다!"</strong> 하는 반짝이는 아이디어가 있으신가요? 언제든 편하게 의견을 들려주세요. 대학원생 여러분의 목소리에 귀 기울여서 꼭 필요한 프로그램들도 준비할게요😊<br>
+                    <br>
+                    자, 그럼 <strong>새 학기 지원 프로그램</strong>들을 함께 살펴볼까요? 🚀
+                </div>
+                
+                <div class="article-section">
+                    <h2> ✈️ 대학원생 국제화 역량 지원 </h2>
+                    <h3> 글로벌 연구 무대로의 도약, 디딤 프로그램! </h3>
+                    <h4> 해외 학술대회 발표 및 중·단기 연수 지원 (최대 500만원) </h4>
+                    <p>
+                    <b>국제화 활동을 계획 중인 대학원생(수료등록생 포함) 여러분을 응원합니다!</b> <br>
+                    국제 학술대회 발표나 전시회 출품, 혹은 해외 대학 및 연구기관과의 공동연구를 위한 <b><font color="#862633">중·단기 연수(15일 미만)</font></b>를 준비하고 계시나요? 
+                    <b><font color="#862633">항공료, 숙박비, 등록비</font></b>에 한해 <b><font color="#862633">1인당 최대 5,000,000원</font></b>까지 아낌없이 지원해 드립니다. 양식을 작성하여 이메일로 간편하게 신청해 보세요! 
+                    </p>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/145?" class="cta-button">디딤 프로그램 안내</a>
+                </div>
 
-        <div class="article-section">
-			<h2> 📚 ProQuest 학술 DB 온라인 교육 </h2>
-			<h3> 논문 검색과 데이터베이스 활용, 완벽하게 마스터하기 </h3>
-			<h4> 장소 구애 없이 참여하는 4월 온라인 교육 안내 </h4>
-			<p>
-            글로벌 학술 데이터베이스 <b><font color="#862633">ProQuest</font></b>에서 연구자와 대학원생 여러분을 위한 맞춤형 온라인 교육을 진행합니다! <br>
-            방대한 학술 자료 속에서 내 연구에 꼭 필요한 논문을 빠르고 정확하게 찾아내는 <b><font color="#862633">검색 팁</font></b>부터, 선행 연구 조사에 필요한 실질적인 노하우를 배워보실 수 있어요. 장소에 상관없이 온라인으로 편하게 참여하실 수 있으니, 학술 검색에 유용한 꿀팁들을 꼭 얻어 가시길 바랍니다!
-            </p>
-			<a href="https://proquest.libguides.com/korean?utm_campaign=EM1_Online_User_Trainings_Retention_Training_Apr_AG_XBU_APAC_Korea_2026&utm_medium=Email&utm_source=Eloqua#s-lg-box-32336900" style="text-decoration:none; color:white; background:#862633; padding:8px 15px; border-radius:25px; font-weight:bold; display:inline-block;" class="cta-button">ProQuest 온라인 교육 신청하기</a>
-		</div>
-			
-		<div class="article-section">
-		        <h2> 대학원연구교육팀, 언제든 열려있어요! </h2>
-                <h3> 문의 : 044-860-5824</h3> 
-			    <h4> 교육, 연구, 취업, 진학. 여러분이 필요한 모든 정보를 한 자리에! </h4> 
-			    <p> 대학원혁신지원사업은 대학원생 여러분들의 원활한 학업과 연구를 위한 사업입니다. 궁금한 것, 필요한 것이 있다면 주저말고 연락주세요 :) </p>
+                <div class="article-section">
+                    <h2> 🌸 상반기 심리지원 및 마음챙김 </h2>
+                    <h3> 연구 스트레스는 비우고, 긍정 에너지는 채워요 </h3>
+                    <h4> 샌드위치와 함께하는 나만의 힐링 타임 </h4>
+                    <p>
+                    올해 상반기에는 <b><font color="#862633">DISC 행동유형 분석(4/9)</font></b>, 오감을 치유하는 <b><font color="#862633">핸드메이드 허브볼 제작(5/7)</font></b>, 그리고 집중력을 높여줄 <b><font color="#862633">나의 힐링 아이콘 만들기(6/11)</font></b> 프로그램이 준비되어 있습니다. 맛있는 점심 샌드위치도 제공되니, 잠시 휴식을 즐겨보세요!
+                    </p>
+                    <a href="https://forms.gle/YB75CWjgRrCY7evR9" class="cta-button">마음챙김 프로그램 신청하기</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 💡 실전 창업 마스터 프로그램 </h2>
+                    <h3> 내 연구와 아이디어가 현실이 되는 창업 특강 </h3>
+                    <h4> 배민 상품권 100% 당첨 이벤트 진행 중! </h4>
+                    <p>
+                    4월부터 10월까지, <b><font color="#862633">총 4회차의 창업 역량 강화 특강</font></b>이 열립니다. 3회 이상 수강하고 만족도 조사에 참여하시면 <b><font color="#862633">배달의민족 1만 원 상품권이 100% 지급</b></font>되니 절대 놓치지 마세요!
+                    </p>
+                    <a href="https://forms.gle/tjrj9icQM2NCEBGQ7" class="cta-button">실전 창업 마스터 프로그램 신청하기</a>
+                </div>
+                
+                <div class="article-section">
+                    <h2> 🧪 연구역량 활성화 지원 프로그램 </h2>
+                    <h3> 융복합 연구부터 논문 교정, 우수논문 경진대회까지 </h3>
+                    <ul>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>융복합 연구그룹:</b> 다른 전공의 학생과 팀(3인 이상)을 이루어 시너지를 내보세요! <b><font color="#862633">최대 200만 원</font></b>을 지원합니다. (4/6까지 연장)</li>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>원문 교정 지원:</b> 1편당 <b><font color="#862633">최대 30만 원</font></b>의 영어 논문 교정 비용을 지원합니다.</li>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 15px;"><b>우수논문 경진대회:</b> 숨어있는 내 논문을 뽐내고 <b><font color="#862633">최대 100만 원</font></b>의 상금을 받으세요!</li>
+                    </ul>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/133?" class="cta-button">융복합 연구그룹 안내</a>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/131?" class="cta-button">논문 원문 교정 지원 안내</a>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/132?" class="cta-button">우수논문 경진대회 안내</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 📚 ProQuest 학술 DB 온라인 교육 </h2>
+                    <h3> 논문 검색과 데이터베이스 활용 완벽 마스터 </h3>
+                    <p>연구에 꼭 필요한 논문을 빠르고 정확하게 찾아내는 <b><font color="#862633">검색 팁</font></b>부터 실질적인 노하우를 배워보세요! 온라인으로 편하게 참여하실 수 있습니다.</p>
+                    <a href="https://proquest.libguides.com/korean?utm_campaign=EM1_Online_User_Trainings_Retention_Training_Apr_AG_XBU_APAC_Korea_2026&utm_medium=Email&utm_source=Eloqua#s-lg-box-32336900" class="cta-button">ProQuest 온라인 교육 신청하기</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 📱 연구산학처 카카오톡 채널 </h2>
+                    <h3> 문자, 메일 너무 많이 와서 지치지 않으시나요? </h3>
+                    <p>이제 <b><font color="#862633">연구산학처 카카오톡 채널</font></b>을 추가하세요! 꼭 필요한 지원 사업과 혜택들만 쏙쏙 뽑아 한눈에 받아보실 수 있습니다.</p>
+                    <a href="http://pf.kakao.com/_ASQtn" class="kakao-button">카카오톡 채널 추가하기</a>
+                </div>
+                    
+                <div class="article-section">
+                    <h2> 대학원연구교육팀, 언제든 열려있어요! </h2>
+                    <h3> 문의 : 044-860-5824</h3> 
+                    <p> 대학원혁신지원사업은 여러분의 학업과 연구를 위한 사업입니다. 궁금한 점이 있다면 주저말고 연락주세요 :) </p>
+                </div>
+            </div>
         </div>
-	</div>
+
+        <div id="content-en" style="display: none;">
+            <div class="header">
+                <h1> Korea University Sejong Campus <br> Graduate School Research & Education Team Newsletter (Apr. 2026) </br> </h1>
+                <p> Welcoming the new semester with warm spring breezes! 🌸 </p>
+            </div>
+            
+            <div class="content">
+                <div class="intro-text">
+                    Hello, this is the Graduate School Research & Education Team. Spring is in full swing this April! In this newsletter, we have packed various support programs to help enhance your research capabilities, explore career paths, and take care of your mental health.<br><br>
+                    Do you have any brilliant ideas like, <strong>"I wish there was a program exactly like this for us!"</strong>? Please feel free to share your thoughts with us anytime. We will listen to the voices of our graduate students and prepare necessary programs 😊<br><br>
+                    Now, let's explore the <strong>New Semester Support Programs</strong> together! 🚀
+                </div>
+                
+                <div class="article-section">
+                    <h2> ✈️ Global Competency Support for Grad Students </h2>
+                    <h3> Leap onto the Global Research Stage: DIDIM Program! </h3>
+                    <h4> Overseas Conferences & Short-term Training (Up to 5M KRW) </h4>
+                    <p>
+                    <b>We support graduate students planning international activities!</b> <br>
+                    Preparing for an international conference presentation or <b><font color="#862633">short-term training (under 15 days)</font></b> for joint research? 
+                    We provide up to <b><font color="#862633">5,000,000 KRW per person</font></b> covering airfare, accommodation, and registration fees. Apply via email now!
+                    </p>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/145?" class="cta-button">DIDIM Program Info</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 🌸 Spring Psychological Support & Mindfulness </h2>
+                    <h3> Empty research stress, fill with positive energy </h3>
+                    <p>Programs include DISC behavioral analysis (4/9), Handmade Herb Ball making (5/7), and creating your Healing Icon (6/11). Delicious sandwiches are provided for each session! Take a sweet break from your lab.</p>
+                    <a href="https://forms.gle/YB75CWjgRrCY7evR9" class="cta-button">Apply for Mindfulness Program</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 💡 Practical Startup Master Program </h2>
+                    <h3> Startup special lectures where your research becomes reality </h3>
+                    <p>From April to October, 4 special lectures on startup capabilities will be held. Attend 3+ sessions and join the survey to get a <b><font color="#862633">10,000 KRW Baemin gift card (100% win rate)!</b></font></p>
+                    <a href="https://forms.gle/tjrj9icQM2NCEBGQ7" class="cta-button">Apply for Startup Program</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 🧪 Research Activation Support Programs </h2>
+                    <h3> From convergence research to proofreading and thesis contests </h3>
+                    <ul>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>Convergence Research Groups:</b> Form a team (3+ members) with other majors! Get up to <b><font color="#862633">2,000,000 KRW</font></b>. (Deadline extended to 4/6)</li>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 8px;"><b>English Proofreading:</b> Get up to <b><font color="#862633">300,000 KRW</font></b> per paper for international journal submissions.</li>
+                        <li style="margin-left: 20px; font-size: 15px; margin-bottom: 15px;"><b>Thesis Contest:</b> Showcase your research and win up to <b><font color="#862633">1,000,000 KRW</font></b>!</li>
+                    </ul>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/133?" class="cta-button">Research Group Info</a>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/131?" class="cta-button">Proofreading Info</a>
+                    <a href="https://research.korea.ac.kr/front/board/22/post/132?" class="cta-button">Thesis Contest Info</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 📚 ProQuest Academic DB Online Training </h2>
+                    <h3> Master thesis searching and database utilization </h3>
+                    <p>Learn <b><font color="#862633">search tips</font></b> to find necessary papers quickly and accurately. Participate conveniently online!</p>
+                    <a href="https://proquest.libguides.com/korean?utm_campaign=EM1_Online_User_Trainings_Retention_Training_Apr_AG_XBU_APAC_Korea_2026&utm_medium=Email&utm_source=Eloqua#s-lg-box-32336900" class="cta-button">Apply for ProQuest Training</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> 📱 KUS Research & Academic Cooperation KakaoTalk </h2>
+                    <h3> Tired of receiving too many emails and texts? </h3>
+                    <p>Add our <b><font color="#862633">KakaoTalk Channel</font></b>! Get essential support programs and benefits at a glance, conveniently on your phone.</p>
+                    <a href="http://pf.kakao.com/_ASQtn" class="kakao-button">Add KakaoTalk Channel</a>
+                </div>
+
+                <div class="article-section">
+                    <h2> Always open to hear from you! </h2>
+                    <h3> Contact : 044-860-5824</h3> 
+                    <p> These programs are for your academic and research success. If you have any questions, do not hesitate to contact us! :) </p>
+                </div>
+            </div>
+        </div>
 		     
-    <div class="footer">
-           <div class="social-links">
-		   <a href="#">📘 Facebook</a> 
-		   <a href="#">🐦 Twitter</a> 
-		   <a href="#">📷 Instagram</a> 
-		   <a href="#">💼 LinkedIn</a>
-		   </div>
-           <p>© 2026 고려대학교 세종캠퍼스 대학원연구교육팀. All rights reserved.</p>
-    </div>
+        <div class="footer">
+            <p>© 2026 Korea University Sejong Campus. All rights reserved.</p>
+        </div>
 		
 	</div>
 	
 	<script>
-    const effectsContainer = document.getElementById('effects-container');
-    const petalTypes = ['🌸', '💮'];
+        function toggleLanguage() {
+            const switchInput = document.getElementById("lang-switch");
+            const contentKo = document.getElementById("content-ko");
+            const contentEn = document.getElementById("content-en");
+            const labelKo = document.getElementById("label-ko");
+            const labelEn = document.getElementById("label-en");
 
-    function createPetal() {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        
-        petal.innerHTML = petalTypes[Math.floor(Math.random() * petalTypes.length)];
-        petal.style.left = Math.random() * 100 + 'vw';
-        
-        const duration = Math.random() * 5 + 5;
-        petal.style.animationDuration = duration + 's';
-        petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        petal.style.animationDelay = Math.random() * 2 + 's';
+            if (switchInput.checked) {
+                contentKo.style.display = "none";
+                contentEn.style.display = "block";
+                labelKo.style.color = "#ccc";
+                labelEn.style.color = "#862633";
+            } else {
+                contentKo.style.display = "block";
+                contentEn.style.display = "none";
+                labelKo.style.color = "#862633";
+                labelEn.style.color = "#ccc";
+            }
+        }
 
-        effectsContainer.appendChild(petal);
+        const effectsContainer = document.getElementById('effects-container');
+        const petalTypes = ['🌸', '💮'];
 
-        setTimeout(() => {
-            petal.remove();
-        }, (duration + 2) * 1000);
-    }
-
-    setInterval(createPetal, 300);
-</script>
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.className = 'petal';
+            petal.innerHTML = petalTypes[Math.floor(Math.random() * petalTypes.length)];
+            petal.style.left = Math.random() * 100 + 'vw';
+            const duration = Math.random() * 5 + 5;
+            petal.style.animationDuration = duration + 's';
+            petal.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            petal.style.animationDelay = Math.random() * 2 + 's';
+            effectsContainer.appendChild(petal);
+            setTimeout(() => { petal.remove(); }, (duration + 2) * 1000);
+        }
+        setInterval(createPetal, 300);
+    </script>
 </body>
 
 </html>
