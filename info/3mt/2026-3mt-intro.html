@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[Graduate School] 2026 K-3MT Competition 종합 안내</title>
     <style>
-        /* 기본 스타일 초기화 */
+        /* 기본 스타일 초기화 - h4 추가 반영 */
         body, h1, h2, h3, h4, p, ul, li { margin: 0; padding: 0; }
         body {
             font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -23,6 +23,37 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        /* 🌐 다국어 언어 전환 바 스타일 */
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #5C132B;
+            padding: 10px 20px;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .lang-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+        .lang-btn.active {
+            background-color: #ffffff;
+            color: #861F41;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         /* 헤더 섹션 */
@@ -186,6 +217,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            margin-top: 5px;
             margin-bottom: 25px;
         }
         @media (max-width: 550px) {
@@ -330,16 +362,45 @@
             color: #777777;
             border-top: 1px solid #e9ecef;
         }
+
+        /* 언어별 노출 제어용 클래스 */
+        .lang-block { display: none; }
+        body.lang-ko .ko { display: block; display: initial; }
+        body.lang-en .en { display: block; display: initial; }
+        body.lang-zh .zh { display: block; display: initial; }
+        
+        /* 테이블/그리드 전용 제어 */
+        body.lang-ko th.ko, body.lang-ko td.ko, body.lang-ko div.ko, body.lang-ko h1.ko, body.lang-ko h2.ko, body.lang-ko h3.ko, body.lang-ko h4.ko { display: table-cell; display: block; }
+        body.lang-en th.en, body.lang-en td.en, body.lang-en div.en, body.lang-en h1.en, body.lang-en h2.en, body.lang-en h3.en, body.lang-en h4.en { display: table-cell; display: block; }
+        body.lang-zh th.zh, body.lang-zh td.zh, body.lang-zh div.zh, body.lang-zh h1.zh, body.lang-zh h2.zh, body.lang-zh h3.zh, body.lang-zh h4.zh { display: table-cell; display: block; }
     </style>
 </head>
-<body>
+<body class="lang-ko"> <!-- 기본값 한국어 설정 -->
 
 <div class="newsletter-container">
+    
+    <!-- 🌐 상단 언어 선택 버튼 바 -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('ko')">한국어</button>
+        <button class="lang-btn" onclick="switchLang('en')">English</button>
+        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+    </div>
+
     <!-- 헤더 -->
     <div class="header">
         <div class="badge">GRADUATE SCHOOL INNOVATION</div>
-        <h1>2026 3MT in KUS Competition 요강<br><span style="font-size: 19px; font-weight: 400; opacity: 0.9;">Three Minute Thesis: 3분 발표 경연대회</span></h1>
-        <p style="margin-top: 12px; font-size: 14px; letter-spacing: 0.5px;">참가 자격부터 예·본선 주의사항까지 이 한 페이지로 끝내기</p>
+        <h1>
+            <span class="lang-block ko">2026 3MT in KUS Competition 요강</span>
+            <span class="lang-block en">2026 3MT in KUS Competition Guidelines</span>
+            <span class="lang-block zh">2026 3MT in KUS 比赛指南</span>
+            <br>
+            <span style="font-size: 19px; font-weight: 400; opacity: 0.9;">Three Minute Thesis: 3分 발표 경연대회</span>
+        </h1>
+        <p style="margin-top: 12px; font-size: 14px; letter-spacing: 0.5px;">
+            <span class="lang-block ko">참가 자격부터 예·본선 주의사항까지 이 한 페이지로 끝내기</span>
+            <span class="lang-block en">From eligibility to precautions for preliminaries and finals in one page</span>
+            <span class="lang-block zh">一页 了解从参赛资格 到初赛、决赛的注意事项</span>
+        </p>
     </div>
 
     <!-- 본문 -->
@@ -347,177 +408,393 @@
         
         <!-- 대회의 취지 -->
         <div class="purpose-box">
-            <h2>💡 왜 하필 "3분" 발표인가요? (대회 취지)</h2>
+            <h2>
+                <span class="lang-block ko">💡 왜 하필 "3분" 발표인가요? (대회 취지)</span>
+                <span class="lang-block en">💡 Why a "3-Minute" Presentation? (Purpose)</span>
+                <span class="lang-block zh">💡 为什么是“3分钟”演讲？(比赛宗旨)</span>
+            </h2>
             <p>
-                3MT(Three Minute Thesis)는 복잡하고 방대한 연구 내용을 짧고 명확하게 요약하여 대중에게 전달하는 역량을 기르는 대회입니다. 
-                3분이라는 시간은 발표자가 연구의 핵심을 효과적으로 구조화하고, <strong>비전문가(청중)도 쉽게 이해할 수 있도록 소통하는 능력</strong>을 평가하기 가장 좋은 시간입니다.<br><br>
-                이 대회를 준비하는 과정 자체가 학술 커뮤니케이션 능력을 키워줄 뿐만 아니라, 향후 학회 포스터 발표, 취업 인터뷰, 대중 강연을 준비하는 데 엄청난 자산이 됩니다.
+                <span class="lang-block ko">3MT(Three Minute Thesis)는 복잡하고 방대한 연구 내용을 짧고 명확하게 요약하여 대중에게 전달하는 역량을 기르는 대회입니다. 3분이라는 시간은 발표자가 연구의 핵심을 효과적으로 구조화하고, <strong>비전문가(청중)도 쉽게 이해할 수 있도록 소통하는 능력</strong>을 평가하기 가장 좋은 시간입니다.<br><br>이 대회를 준비하는 과정 자체가 학술 커뮤니케이션 능력을 키워줄 뿐만 아니라, 향후 학회 포스터 발표, 취업 인터뷰, 대중 강연을 준비하는 데 엄청난 자산이 됩니다.</span>
+                <span class="lang-block en">The Three Minute Thesis (3MT) is a competition that develops students' capacities to explain their research effectively in a short period to a non-specialist audience. The 3-minute limit forces presenters to structure the core of their research effectively and evaluates their ability to <strong>communicate in a way that non-experts can easily understand</strong>.<br><br>Preparing for this competition not only enhances academic communication skills but also serves as a tremendous asset for future conference poster presentations, job interviews, and public lectures.</span>
+                <span class="lang-block zh">3MT(Three Minute Thesis)竞赛旨在培养研究生用简短、明晰的的语言向大众概括并传播复杂、庞大研究内容的能力。3分钟的时间限制促使演讲者有效地构建研究核心，也是评估向<strong>非专业（大众）听众进行易懂交流之能力</strong>的最佳时间。<br><br>准备这项比赛的过程不仅能提高学术交流能力，还将成为未来参加学术会议海报展示、求职面试和大众演讲的巨大财富。</span>
             </p>
         </div>
 
         <!-- 글로벌 우승자 샘플 영상 보기 -->
-        <div class="section-title">📺 글로벌 우승자 샘플 영상 보기</div>
+        <div class="section-title">
+            <span class="lang-block ko">📺 글로벌 우승자 샘플 영상 보기</span>
+            <span class="lang-block en">📺 Watch Global Winners' Sample Videos</span>
+            <span class="lang-block zh">📺 观看全球获胜者示范视频</span>
+        </div>
         <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
-            "백문이 불여일견!" 예선(제출용 영상 편집)과 본선(대면 무대 발표)의 실물 구조를 직관적으로 파악해 보세요. 아래 이미지를 클릭하면 유튜브 영상으로 연결됩니다.
+            <span class="lang-block ko">"백문이 불여일견!" 예선(제출용 영상 편집)과 본선(대면 무대 발표)의 실물 구조를 직관적으로 파악해 보세요. 아래 이미지를 클릭하면 유튜브 영상으로 연결됩니다.</span>
+            <span class="lang-block en">"Seeing is believing!" Intuitively grasp the actual format of the preliminary round (video editing) and the final round (in-person stage presentation). Click the images below to open YouTube.</span>
+            <span class="lang-block zh">“百闻不如一见！”直观了解初赛（提交视频编辑）和决赛（现场舞台演讲）的实际结构。点击下方图片链接至YouTube观看。</span>
         </p>
         
         <div class="video-flex">
             <!-- 1. 예선 영상 샘플 -->
             <a href="https://youtu.be/iMONBQLCw2s" target="_blank" class="video-card" style="background: url('https://img.youtube.com/vi/iMONBQLCw2s/0.jpg') center/cover no-repeat;">
                 <div class="video-overlay">
-                    <span class="video-tag">📹 예선 영상 샘플 (비대면)</span>
+                    <span class="video-tag">
+                        <span class="lang-block ko">📹 예선 영상 샘플 (비대면)</span>
+                        <span class="lang-block en">📹 Preliminary Sample (Virtual)</span>
+                        <span class="lang-block zh">📹 初赛视频样本 (非面授)</span>
+                    </span>
                     <div class="play-button"><div class="play-icon"></div></div>
-                    <span class="video-title">University of Queensland 3MT 가이드<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[규정 준수: 단색 배경 촬영 + PPT 1장 화면 분할 배치]</span></span>
+                    <span class="video-title">
+                        <span class="lang-block ko">University of Queensland 3MT 가이드<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[규정 준수: 단색 배경 촬영 + PPT 1장 화면 분할 배치]</span></span>
+                        <span class="lang-block en">Univ. of Queensland 3MT Guide<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[Rule: Plain background + Split screen with 1 slide]</span></span>
+                        <span class="lang-block zh">昆士兰大学 3MT 指南<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[合规：单色背景拍摄 + 1张PPT分屏投放]</span></span>
+                    </span>
                 </div>
             </a>
             
             <!-- 2. 본선 무대 샘플 -->
             <a href="https://www.youtube.com/watch?v=PczCM3GwB4Q" target="_blank" class="video-card" style="background: url('https://img.youtube.com/vi/PczCM3GwB4Q/0.jpg') center/cover no-repeat;">
                 <div class="video-overlay">
-                    <span class="video-tag">🎤 본선 무대 샘플 (대면)</span>
+                    <span class="video-tag">
+                        <span class="lang-block ko">🎤 본선 무대 샘플 (대면)</span>
+                        <span class="lang-block en">🎤 Final Stage Sample (In-person)</span>
+                        <span class="lang-block zh">🎤 决赛舞台样本 (现场面授)</span>
+                    </span>
                     <div class="play-button"><div class="play-icon"></div></div>
-                    <span class="video-title">Stanford 3MT 1위 우승작<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[현장 대면 무대: 실시간 스피치 및 아이컨택]</span></span>
+                    <span class="video-title">
+                        <span class="lang-block ko">Stanford 3MT 1위 우승작<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[현장 대면 무대: 실시간 스피치 및 아이컨택]</span></span>
+                        <span class="lang-block en">Stanford 3MT 1st Prize Winner<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[Live Stage: Real-time speech & eye contact]</span></span>
+                        <span class="lang-block zh">斯坦福大学 3MT 第一名作品<br><span style="font-size:11px; font-weight:normal; opacity:0.9;">[现场面授舞台：实时演讲与眼神交流]</span></span>
+                    </span>
                 </div>
             </a>
         </div>
 
         <!-- 1. 참가 자격 및 주제 -->
-        <div class="section-title">1. 누가, 어떤 주제로 참가할 수 있나요?</div>
+        <div class="section-title">
+            <span class="lang-block ko">1. 누가, 어떤 주제로 참가할 수 있나요?</span>
+            <span class="lang-block en">1. Who Can Participate & What Is the Topic?</span>
+            <span class="lang-block zh">1. 谁可以参加，可以演讲什么主题？</span>
+        </div>
         
-        <div class="sub-title">✅ 참가 대상 및 자격 기준</div>
+        <div class="sub-title">
+            <span class="lang-block ko">✅ 참가 대상 및 자격 기준</span>
+            <span class="lang-block en">✅ Eligibility & Criteria</span>
+            <span class="lang-block zh">✅ 参赛对象及资格标准</span>
+        </div>
         <ul class="bullet-list">
-            <li><strong>본교 대학원생이라면 누구든지 참여 가능 (재학 및 수료연구생 포함)</strong>
-                <!-- 석사, 박사 위계를 하위 수준으로 완벽하게 낮춤 -->
+            <li>
+                <strong>
+                    <span class="lang-block ko">본교 대학원생이라면 누구든지 참여 가능 (재학 및 수료연구생 포함)</span>
+                    <span class="lang-block en">Any graduate student of our school can participate (including enrolled and course-completed research students).</span>
+                    <span class="lang-block zh">本校研究生均可参加（包括在读及结业研究人员）。</span>
+                </strong>
                 <ul class="sub-list">
-                    <li><strong>석사과정생:</strong> 현재 준비 및 진행 중인 연구 내용을 바탕으로 참가 가능</li>
-                    <li><strong>박사과정생:</strong> 초기 단계(디저테이션 주제 미확정)인 경우 석사학위 논문으로 참가 가능하며, 연구 수행 단계인 경우 박사학위 논문 주제로 참가 가능</li>
+                    <li>
+                        <span class="lang-block ko"><strong>석사과정생:</strong> 현재 준비 및 진행 중인 연구 내용을 바탕으로 참가 가능</span>
+                        <span class="lang-block en"><strong>Master's Students:</strong> Eligible to participate based on current or ongoing research contents.</span>
+                        <span class="lang-block zh"><strong>硕士课程生：</strong>可基于目前准备及进行中的研究内容参赛。</span>
+                    </li>
+                    <li>
+                        <span class="lang-block ko"><strong>박사과정생:</strong> 초기 단계(디저테이션 주제 미확정)인 경우 석사학위 논문으로 참가 가능하며, 연구 수행 단계인 경우 박사학위 논문 주제로 참가 가능</span>
+                        <span class="lang-block en"><strong>Doctoral Students:</strong> In the early stages (unconfirmed dissertation topic), they can present using their Master's thesis; in the research phase, they can present on their Ph.D. dissertation topic.</span>
+                        <span class="lang-block zh"><strong>博士课程生：</strong>处于初期阶段（博士论文题目未确定）者可以硕士学位论文参赛，处于研究实施阶段者可以博士学位论文题目参赛。</span>
+                    </li>
                 </ul>
             </li>
-            <!-- 연계대회 주의사항을 박스 밖으로 빼고 누구든지 참여가능 문구와 같은 수준(눈높이)으로 격상 배치 -->
-            <li style=" font-weight: bold;">⚠️ 연계대회 출전 제한 주의 </il> 
-			                <ul class="sub-list">
-			                <li> 본교 세종캠퍼스 경연대회는 석·박사 과정 모두 참가 및 시상이 가능하나, <font style="color: #d9383a; font-weight: bold;"> 본교 우승 이후 연계되는 전국대회 및 세계대회(Asia-Pacific 3MT 등)의 경우 주관기관 규정에 따라 박사학위 소속(과정 및 수료생)만 진출</font>이 가능합니다.</li>
+            <li style="font-weight: bold;">
+                <span class="lang-block ko">⚠️ 연계대회 출전 제한 주의</span>
+                <span class="lang-block en">⚠️ Notice on Advancement to Joint Competitions</span>
+                <span class="lang-block zh">⚠️ 联合竞赛参赛限制注意</span>
+                <ul class="sub-list">
+                    <li>
+                        <span class="lang-block ko">본교 세종캠퍼스 경연대회는 석·박사 과정 모두 참가 및 시상이 가능하나, <span style="color: #d9383a; font-weight: bold;">본교 우승 이후 연계되는 전국대회 및 세계대회(Asia-Pacific 3MT 등)의 경우 주관기관 규정에 따라 박사학위 소속(과정 및 수료생)만 진출</span>이 가능합니다.</span>
+                        <span class="lang-block en">Both Master's and Doctoral students can participate and receive awards in the KUS campus competition. However, <span style="color: #d9383a; font-weight: bold;">for the subsequent National and International Competitions (e.g., Asia-Pacific 3MT), only Doctoral status students (enrolled or completed) can advance</span> according to the host organizations' regulations.</span>
+                        <span class="lang-block zh">本校世宗校区的竞赛硕士、博士课程生均可参加并获得奖项。但是，<span style="color: #d9383a; font-weight: bold;">根据主办机构的规定，获得本校冠军后对接的全国竞赛及世界竞赛（Asia-Pacific 3MT等），仅限博士学位所属人员（在读及结业生）晋级</span>。</span>
+                    </li>
+                </ul>
+            </li>
         </ul>
         
-        <!-- 오직 '참가 불가 대상' 리스트만 포함되도록 정돈된 붉은색 경고 박스 -->
+        <!-- 참가 불가 대상 박스 -->
         <div class="warning-box">
-            <div class="warning-box-title">🚨 참가 불가 대상 (지원 제외 조건)</div>
+            <div class="warning-box-title">
+                <span class="lang-block ko">🚨 참가 불가 대상 (지원 제외 조건)</span>
+                <span class="lang-block en">🚨 Ineligible Individuals (Exclusion Criteria)</span>
+                <span class="lang-block zh">🚨 无法参赛的对象 (不予资助的条件)</span>
+            </div>
             <ul class="warning-list">
-                <li>2026년 8월 졸업 예정자</li>
-                <li>교환학생 신분인 자</li>
-                <li>이미 동일한 콘텐츠로 교내 유사 사업 및 프로그램에 참여 중인 자 (중복 참가 불가)</li>
-                <li>진행되는 본선 무대에 참석 불가한 자</li>
-                <li>교내 대회 최종 우승 시, 다음 연계 대회(전국 대회 등)에 참여할 수 없는 자</li>
+                <li>
+                    <span class="lang-block ko">2026년 8월 졸업 예정자</span>
+                    <span class="lang-block en">Those expected to graduate in August 2026</span>
+                    <span class="lang-block zh">2026年8月预计毕业者</span>
+                </li>
+                <li>
+                    <span class="lang-block en">Exchange students</span>
+                    <span class="lang-block ko">교환학생 신분인 자</span>
+                    <span class="lang-block zh">交换生身份者</span>
+                </li>
+                <li>
+                    <span class="lang-block ko">이미 동일한 콘텐츠로 교내 유사 사업 및 프로그램에 참여 중인 자 (중복 참가 불가)</span>
+                    <span class="lang-block en">Those already participating in similar on-campus projects or programs with the same content (Duplicate participation not allowed)</span>
+                    <span class="lang-block zh">已使用相同内容参加校内类似项目及课程者（不可重复参加）</span>
+                </li>
+                <li>
+                    <span class="lang-block ko">진행되는 본선 무대에 참석 불가한 자</span>
+                    <span class="lang-block en">Those unable to attend the live final round stage</span>
+                    <span class="lang-block zh">无法参加即将举行的决赛舞台者</span>
+                </li>
+                <li>
+                    <span class="lang-block ko">교내 대회 최종 우승 시, 다음 연계 대회(전국 대회 등)에 참여할 수 없는 자</span>
+                    <span class="lang-block en">Those unable to participate in subsequent joint competitions (National round, etc.) if they win the campus round</span>
+                    <span class="lang-block zh">在校内竞赛中获得最终冠军时，无法参加下一轮联合竞赛（全国竞赛等）者</span>
+                </li>
             </ul>
         </div>
 
-        <div class="sub-title">✅ 발표 주제 및 언어</div>
+        <div class="sub-title">
+            <span class="lang-block ko">✅ 발표 주제 및 언어</span>
+            <span class="lang-block en">✅ Presentation Topic & Language</span>
+            <span class="lang-block zh">✅ 演讲主题及语言</span>
+        </div>
         <ul class="bullet-list">
-            <li><strong>발표 주제:</strong> 반드시 <span style="color: #861F41; font-weight: 700; font-size: 15px; background-color: #fff0f2; padding: 2px 4px; border-radius: 4px;">📝 본인의 학위 논문 주제</span>를 바탕으로 내용을 구성해야 합니다.</li>
-            <li><strong>발표 언어:</strong> 글로벌 학술 커뮤니케이션 대회 취지에 따라 발표는 반드시 <strong>영어로 진행</strong>해야 하며, 비전공자 청중도 쉽게 이해할 수 있도록 구성해야 합니다.</li>
+            <li>
+                <span class="lang-block ko"><strong>발표 주제:</strong> 반드시 <span style="color: #861F41; font-weight: 700; font-size: 15px; background-color: #fff0f2; padding: 2px 4px; border-radius: 4px;">📝 본인의 학위 논문 주제</span>를 바탕으로 내용을 구성해야 합니다.</span>
+                <span class="lang-block en"><strong>Topic:</strong> Content must be constructed based on <span style="color: #861F41; font-weight: 700; font-size: 15px; background-color: #fff0f2; padding: 2px 4px; border-radius: 4px;">📝 your own thesis/dissertation topic</span>.</span>
+                <span class="lang-block zh"><strong>演讲主题：</strong>必须基于<span style="color: #861F41; font-weight: 700; font-size: 15px; background-color: #fff0f2; padding: 2px 4px; border-radius: 4px;">📝 本人的学位论文主题</span>构建内容。</span>
+            </li>
+            <li>
+                <span class="lang-block ko"><strong>발표 언어:</strong> 글로벌 학술 커뮤니케이션 대회 취지에 따라 발표는 반드시 <strong>영어로 진행</strong>해야 하며, 비전공자 청중도 쉽게 이해할 수 있도록 구성해야 합니다.</span>
+                <span class="lang-block en"><strong>Language:</strong> In alignment with the purpose of a global academic communication competition, the presentation must be delivered in <strong>English</strong> and structured so that a non-specialist audience can easily understand.</span>
+                <span class="lang-block zh"><strong>演讲语言：</strong>根据全球学术交流竞赛的宗旨，演讲必须<strong>用英语进行</strong>，且内容应确保非专业听众也能轻松理解。</span>
+            </li>
         </ul>
 
         <!-- 2. 준비해야 할 사항 및 라운드별 규정 -->
-        <div class="section-title">2. 무엇을 어떻게 준비해야 하나요? (단계별 규정)</div>
-        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">대회는 예선(비대면)과 본선(대면)으로 나뉘며, 제출 및 발표 규정이 매우 엄격하므로 주의합니다.</p>
+        <div class="section-title">
+            <span class="lang-block ko">2. 무엇을 어떻게 준비해야 하나요? (단계별 규정)</span>
+            <span class="lang-block en">2. What and How Should I Prepare? (Round Guidelines)</span>
+            <span class="lang-block zh">2. 需要准备什么，如何准备？(各阶段规程)</span>
+        </div>
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+            <span class="lang-block ko">대회는 예선(비대면)과 본선(대면)으로 나뉘며, 제출 및 발표 규정이 매우 엄격하므로 주의해야 합니다.</span>
+            <span class="lang-block en">The competition is divided into preliminary (virtual) and final (in-person) rounds. Please note that submission and presentation rules are very strict.</span>
+            <span class="lang-block zh">比赛分为初赛（非面授）和决赛（面授），提交及演讲规定非常严格，需多加注意。</span>
+        </p>
 
         <div class="grid-container">
             <!-- 예선 준비사항 -->
             <div class="grid-card">
-                <h4>📹 [1단계] 예선 (비대면 영상 심사)</h4>
-                <p style="font-size: 13px; color: #555; line-height: 1.5;">
-                    <strong>제출물:</strong> PPT 슬라이드 1장, 발표 스크립트, 초록, 발표 영상 링크<br><br>
-                    <strong>촬영 주의사항:</strong><br>
-                    - 가로(랜드스케이프) 방향 촬영<br>
-                    - 무늬 없는 단색 배경 앞 고정 촬영<br>
-                    - 카메라 앵글 편집 없이 처음부터 끝까지 원테이크 연속 녹화 (음향 편집 불가)<br>
-                    - 3MT 타이틀 슬라이드와 발표용 PPT 1장이 반드시 영상 내에 포함되어야 함 (우측 상단 등에 최대 1분까지 삽입 가능)
+                <h4>
+                    <span class="lang-block ko">📹 [1단계] 예선 (비대면 영상 심사)</span>
+                    <span class="lang-block en">📹 [Round 1] Preliminary (Virtual Video)</span>
+                    <span class="lang-block zh">📹 [第一阶段] 初赛 (非面授视频评审)</span>
+                </h4>
+                <p style="font-size: 13px; color: #555; line-height: 1.5; margin-top: 5px;">
+                    <span class="lang-block ko"><strong>제출물:</strong> PPT 슬라이드 1장, 발표 스크립트, 초록, 발표 영상 링크<br><br><strong>촬영 주의사항:</strong><br>- 가로(랜드스케이프) 방향 촬영<br>- 무늬 없는 단색 배경 앞 고정 촬영<br>- 카메라 앵글 편집 없이 처음부터 끝까지 원테이크 연속 녹화 (음향 편집 불가)<br>- 3MT 타이틀 슬라이드와 발표용 PPT 1장이 반드시 영상 내에 포함되어야 함 (우측 상단 등에 최대 1분까지 삽입 가능)</span>
+                    <span class="lang-block en"><strong>Submissions:</strong> 1 PowerPoint slide, script, abstract, and video link.<br><br><strong>Filming Precautions:</strong><br>- Filmed horizontally (Landscape mode)<br>- Filmed from a static position against a plain background<br>- Continuous one-take recording from start to finish without camera angle edits (No audio edits allowed)<br>- 3MT title slide and 1 presentation slide must be included in the video (Can be inserted on top right, etc., for up to 1 minute)</span>
+                    <span class="lang-block zh"><strong>提交材料：</strong>1张PPT幻灯片、演讲稿、摘要、演讲视频链接<br><br><strong>拍摄注意事项：</strong><br>- 横向（横屏）画面拍摄<br>- 在无图案的单色背景前固定位置拍摄<br>- 没有任何相机角度编辑，从头到尾一次性连续录制（不可编辑音效）<br>- 视频内必须包含3MT标题幻灯片和1张演讲用PPT（可嵌入右上角等处，最多展示1分钟）</span>
                 </p>
             </div>
             <!-- 본선 준비사항 -->
             <div class="grid-card">
-                <h4>🎤 [2단계] 본선 (대면 라이브 심사)</h4>
-                <p style="font-size: 13px; color: #555; line-height: 1.5;">
-                    <strong>대상:</strong> 예선 통과자 (필수 교육 수료자)<br><br>
-                    <strong>진행 방식:</strong><br>
-                    - 관객과 심사위원 앞에서 3분간 직접 무대 발표를 진행합니다.<br>
-                    - 발표 시작 시점부터 단일 PPT 슬라이드가 화면에 띄워져 있어야 합니다.<br>
-					- 발표자가 무대 위에서 첫 말이나 움직임으로 발표를 개시하는 순간부터 시작됩니다.<br>
-					- 의상, 악기, 실험 장비는 물론 무대 위 레이저 포인터 등 추가 기기 사용이 일절 금지됩니다.
+                <h4>
+                    <span class="lang-block ko">🎤 [2단계] 본선 (대면 라이브 심사)</span>
+                    <span class="lang-block en">🎤 [Round 2] Finals (In-person Live Round)</span>
+                    <span class="lang-block zh">🎤 [第二阶段] 决赛 (现场面授评审)</span>
+                </h4>
+                <p style="font-size: 13px; color: #555; line-height: 1.5; margin-top: 5px;">
+                    <span class="lang-block ko"><strong>대상:</strong> 예선 통과자 (필수 교육 수료자)<br><br><strong>진행 방식 및 주의사항:</strong><br>- 관객과 심사위원 앞에서 3분간 직접 무대 발표를 진행합니다.<br>- 발표 시작 시점부터 단일 PPT 슬라이드가 화면에 띄워져 있어야 합니다.<br>- <strong>[타이머 작동]</strong> 발표자가 무대 위에서 첫 말(Speech)이나 움직임(Action)으로 발표를 개시하는 순간부터 측정됩니다.<br>- <strong>[소품 제한]</strong> 의상, 악기, 실험 장비는 물론 무대 위 레이저 포인터 등 추가 기기 사용이 일절 금지됩니다.</span>
+                    <span class="lang-block en"><strong>Target:</strong> Preliminary qualifiers (who completed mandatory training).<br><br><strong>Format & Rules:</strong><br>- Deliver a live stage presentation for 3 minutes before an audience and judges.<br>- A single static slide must be displayed from the beginning of the presentation.<br>- <strong>[Timer Starts]</strong> Timing commences when the presenter starts through either speech or movement.<br>- <strong>[Props Prohibited]</strong> The use of costumes, musical instruments, lab equipment, and additional electronic devices like laser pointers is strictly prohibited.</span>
+                    <span class="lang-block zh"><strong>对象：</strong>初赛入围者（须完成必修培训）<br><br><strong>进行方式及注意事项：</strong><br>- 在观众和评委面前进行3分钟的现场舞台演讲。<br>- 从演讲开始时起，屏幕上必须显示单张PPT幻灯片。<br>- <strong>[计时器启动]</strong> 从演讲者在舞台上通过第一句话（Speech）或动作（Action）开始演讲的瞬间起开始计时。<br>- <strong>[道具限制]</strong> 严禁使用服装、乐器、实验设备以及舞台上的激光笔等附加设备。</span>
                 </p>
             </div>
         </div>
 
-        <div class="warning-box" style="border-color: #ffe3b3; background-color: #fffdf9;">
-            <div class="warning-box-title" style="color: #b26a00;">⚠️ 절대 어기면 안 되는 실격 조건 (예·본선 공통)</div>
+        <div class="warning-box" style="border-color: #ffe3b3; background-color: #fffdf9; margin-top: 15px;">
+            <div class="warning-box-title" style="color: #b26a00;">
+                <span class="lang-block ko">⚠️ 절대 어기면 안 되는 실격 조건 (예·본선 공통)</span>
+                <span class="lang-block en">⚠️ Critical Disqualification Criteria (Common for All Rounds)</span>
+                <span class="lang-block zh">⚠️ 绝不可违反的取消资格条件 (初赛·决赛通用)</span>
+            </div>
             <ul class="warning-list" style="color: #666;">
-                <li><strong style="color: #b26a00;">시간 제한:</strong> 발표 시간은 최대 3분이며, <strong>3분을 단 1초라도 초과하면 즉시 실격</strong>됩니다. (발표자가 첫 말이나 행동을 시작하는 순간부터 타이머 작동)</li>
-                <li><strong>시각 자료:</strong> 단 <strong>1장의 정지된 PPT 슬라이드</strong>만 쓸 수 있습니다. 화면 전환, 애니메이션 효과는 일절 금지됩니다.</li>
-                <li><strong>소품 사용 불가:</strong> 발표용 의상, 악기, 실험 장비, 레이저 포인터 등 추가 소품은 전혀 사용할 수 없습니다.</li>
-                <li><strong>형식 제한:</strong> 구어(Spoken Word) 형식으로만 발표해야 합니다. 시 낭송, 랩, 노래 등은 허용되지 않습니다.</li>
-                <li><strong>추가 매체 금지:</strong> 발표 중간에 별도의 오디오 파일이나 배경 동영상을 재생할 수 없습니다.</li>
+                <li>
+                    <span class="lang-block ko"><strong style="color: #b26a00;">시간 제한:</strong> 발표 시간은 최대 3분이며, <strong>3분을 단 1초라도 초과하면 즉시 실격</strong>됩니다. (발표 개시 순간부터 타이머 작동)</span>
+                    <span class="lang-block en"><strong style="color: #b26a00;">Time Limit:</strong> Max 3 minutes. Presenters exceeding 3 minutes will be <strong>disqualified immediately</strong> (Timing starts from the moment the presenter begins).</span>
+                    <span class="lang-block zh"><strong style="color: #b26a00;">时间限制：</strong>演讲时间最多为3分钟，<strong>超过3分钟哪怕1秒也会立即取消资格</strong>。（从演讲开始的瞬间起计时器启动）</span>
+                </li>
+                <li>
+                    <span class="lang-block ko"><strong>시각 자료:</strong> 단 <strong>1장의 정지된 PPT 슬라이드</strong>만 쓸 수 있습니다. 화면 전환, 애니메이션 효과는 일절 금지됩니다.</span>
+                    <span class="lang-block en"><strong>Visual Aids:</strong> Only a <strong>single static PPT slide</strong> is permitted. No slide transitions or animation effects of any description are allowed.</span>
+                    <span class="lang-block zh"><strong>视觉材料：</strong>只能使用<strong>1张静止的PPT幻灯片</strong>。严禁使用画面切换、动画效果。</span>
+                </li>
+                <li>
+                    <span class="lang-block ko"><strong>소품 사용 불가:</strong> 발표용 의상, 악기, 실험 장비, 레이저 포인터 등 추가 소품은 전혀 사용할 수 없습니다.</span>
+                    <span class="lang-block en"><strong>No Props:</strong> Additional props, including costumes, musical instruments, lab equipment, or laser pointers, are not permitted at any time.</span>
+                    <span class="lang-block zh"><strong>不可使用道具：</strong>完全不可使用演讲用服装、乐器、实验设备、激光笔等附加道具。</span>
+                </li>
+                <li>
+                    <span class="lang-block ko"><strong>형식 제한:</strong> 구어(Spoken Word) 형식으로만 발표해야 합니다. 시 낭송, 랩, 노래 등은 허용되지 않습니다.</span>
+                    <span class="lang-block en"><strong>Format Limitation:</strong> Presentations are to be spoken word only (e.g., no poems, raps, or songs).</span>
+                    <span class="lang-block zh"><strong>形式限制：</strong>必须仅以口语（Spoken Word）形式进行演讲。不允许诗歌朗诵、说唱、唱歌等。</span>
+                </li>
+                <li>
+                    <span class="lang-block ko"><strong>추가 매체 금지:</strong> 발표 중간에 별도의 오디오 파일이나 배경 동영상을 재생할 수 없습니다.</span>
+                    <span class="lang-block en"><strong>No Additional Media:</strong> No additional electronic media (e.g., sound or background video files) are permitted.</span>
+                    <span class="lang-block zh"><strong>禁止附加媒体：</strong>演讲过程中不得播放单独的音频文件或背景视频。</span>
+                </li>
             </ul>
         </div>
 
         <!-- 3. 참가 혜택 및 연계 특전 -->
-        <div class="section-title">3. 참가하면 어떤 혜택이 주어지나요?</div>
+        <div class="section-title">
+            <span class="lang-block ko">3. 참가하면 어떤 혜택이 주어지나요?</span>
+            <span class="lang-block en">3. What Are the Benefits of Participation?</span>
+            <span class="lang-block zh">3. 参赛可以获得什么福利？</span>
+        </div>
         
-        <div class="sub-title">🎁 맞춤형 교육 프로그램 지원 (참여자 필수)</div>
+        <div class="sub-title">
+            <span class="lang-block ko">🎁 맞춤형 교육 프로그램 지원 (참여자 필수)</span>
+            <span class="lang-block en">🎁 Tailored Training Programs (Mandatory)</span>
+            <span class="lang-block zh">🎁 提供定制型培训课程 (参赛者必修)</span>
+        </div>
         <p style="font-size: 14px; color:#555; margin-bottom: 10px;">
-            대학원생 여러분의 학술 전달력 증진을 위해 대회 과정 중 체계적인 역량 강화 교육을 연계하여 지원합니다.
+            <span class="lang-block ko">대학원생 여러분의 학술 전달력 증진을 위해 대회 과정 중 체계적인 역량 강화 교육을 연계하여 지원합니다.</span>
+            <span class="lang-block en">To enhance graduate students' academic delivery skills, systematic capacity-building training is provided throughout the competition.</span>
+            <span class="lang-block zh">为了提高研究生的学术传播能力，在比赛过程中对接并提供系统的能力强化培训。</span>
         </p>
         <ul class="bullet-list">
-            <li>연구의 핵심을 녹여내는 효과적인 <strong>3분 발표 스크립트 작성 및 스피치 가이드</strong></li>
-            <li>비전문가 청중을 한눈에 사로잡는 <strong>효과적인 1장 슬라이드(인포그래픽) 시각 자료 구성법</strong></li>
-            <li>발표 완성도를 극대화하기 위한 <strong>분야별 전문가 1:1 피드백 및 집중 컨설팅</strong></li>
+            <li>
+                <span class="lang-block ko">연구의 핵심을 녹여내는 효과적인 <strong>3분 발표 스크립트 작성 및 스피치 가이드</strong></span>
+                <span class="lang-block en">Effective <strong>3-minute script writing & speech guides</strong> capturing the core of your research.</span>
+                <span class="lang-block zh">融入研究核心的有效<strong>3分钟演讲稿撰写及演讲指南</strong></span>
+            </li>
+            <li>
+                <span class="lang-block ko">비전문가 청중을 한눈에 사로잡는 <strong>효과적인 1장 슬라이드(인포그래픽) 시각 자료 구성법</strong></span>
+                <span class="lang-block en">How to design an <strong>effective single slide (infographic)</strong> that captivates a non-specialist audience.</span>
+                <span class="lang-block zh">一目了然吸引非专业听众的<strong>有效1张幻灯片（信息图表）视觉材料构建法</strong></span>
+            </li>
+            <li>
+                <span class="lang-block ko">발표 완성도를 극대화하기 위한 <strong>분야별 전문가 1:1 피드백 및 집중 컨설팅</strong></span>
+                <span class="lang-block en"><strong>1:1 expert feedback & intensive consulting</strong> to maximize presentation quality.</span>
+                <span class="lang-block zh">旨在最大限度提高演讲完善度 & <strong>各领域专家1:1反馈及集中咨询</strong></span>
+            </li>
         </ul>
 
-        <div class="sub-title">🏆 장학금 및 특전 안내</div>
+        <div class="sub-title">
+            <span class="lang-block ko">🏆 장학금 및 특전 안내</span>
+            <span class="lang-block en">🏆 Scholarships & Benefits</span>
+            <span class="lang-block zh">🏆 奖학金及特设福利指南</span>
+        </div>
         <table class="prize-table">
             <thead>
                 <tr>
-                    <th>구분</th>
-                    <th>시상금 (장학금)</th>
-                    <th>비고</th>
+                    <th>
+                        <span class="lang-block ko">구분</span>
+                        <span class="lang-block en">Category</span>
+                        <span class="lang-block zh">类别</span>
+                    </th>
+                    <th>
+                        <span class="lang-block ko">시상금 (장학금)</span>
+                        <span class="lang-block en">Prize Money</span>
+                        <span class="lang-block zh">奖金 (奖学金)</span>
+                    </th>
+                    <th>
+                        <span class="lang-block ko">비고</span>
+                        <span class="lang-block en">Remarks</span>
+                        <span class="lang-block zh">备注</span>
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>대상 (1인)</strong></td>
+                    <td>
+                        <span class="lang-block ko"><strong>대상 (1인)</strong></span>
+                        <span class="lang-block en"><strong>Grand Prize (1)</strong></span>
+                        <span class="lang-block zh"><strong>大奖 (1人)</strong></span>
+                    </td>
                     <td style="color: #861F41; font-weight: bold;">1,000,000원</td>
-                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">상장 수여 및 상위 연계 대회 출전 자격 검토</td>
+                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">
+                        <span class="lang-block ko">상장 수여 및 상위 연계 대회 출전 자격 검토</span>
+                        <span class="lang-block en">Certificate awarded & Eligibility review for subsequent higher rounds</span>
+                        <span class="lang-block zh">颁发奖状并评估更高级别对接竞赛的参赛资格</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><strong>우수상</strong></td>
+                    <td>
+                        <span class="lang-block ko"><strong>우수상</strong></span>
+                        <span class="lang-block en"><strong>Excellence Prize</strong></span>
+                        <span class="lang-block zh"><strong>优秀奖</strong></span>
+                    </td>
                     <td style="font-weight: bold;">750,000원</td>
-                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">상장 및 상금 수여</td>
+                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">
+                        <span class="lang-block ko">상장 및 상금 수여</span>
+                        <span class="lang-block en">Certificate & Prize money awarded</span>
+                        <span class="lang-block zh">颁发奖状及奖金</span>
+                    </td>
                 </tr>
                 <tr>
-                    <td><strong>장려상</strong></td>
+                    <td>
+                        <span class="lang-block ko"><strong>장려상</strong></span>
+                        <span class="lang-block en"><strong>Participation Prize</strong></span>
+                        <span class="lang-block zh"><strong>鼓励奖</strong></span>
+                    </td>
                     <td style="font-weight: bold;">500,000원</td>
-                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">상장 및 상금 수여</td>
+                    <td style="font-size: 12.5px; text-align: left; padding: 10px;">
+                        <span class="lang-block ko">상장 및 상금 수여</span>
+                        <span class="lang-block en">Certificate & Prize money awarded</span>
+                        <span class="lang-block zh">颁发奖状及奖金</span>
+                    </td>
                 </tr>
             </tbody>
         </table>
 
         <!-- 4. 수요조사 참여 유도 (CTA) -->
         <div class="cta-section">
-            <h3 style="font-size: 16px; color: #222; margin-bottom: 8px;">📊 2026 3MT in KUS Competition 사전 수요조사</h3>
+            <h3 style="font-size: 16px; color: #222; margin-bottom: 8px;">
+                <span class="lang-block ko">📊 2026 3MT in KUS Competition 사전 수요조사</span>
+                <span class="lang-block en">📊 2026 3MT in KUS Pre-Survey</span>
+                <span class="lang-block zh">📊 2026 3MT in KUS 竞赛事前需求调查</span>
+            </h3>
             <p style="font-size: 13.5px; color: #555; margin-bottom: 20px; line-height: 1.4;">
-                원활한 대회 준비와 여러분에게 딱 맞춘 교육 프로그램을 구성하기 위해<br> 
-                대학원생 여러분의 소중한 참여 의사 및 요구도 조사를 진행하고 있습니다. 많은 참여 부탁드립니다!
+                <span class="lang-block ko">원활한 대회 준비와 여러분에게 딱 맞춘 교육 프로그램을 구성하기 위해<br>대학원생 여러분의 소중한 참여 의사 및 요구도 조사를 진행하고 있습니다. 많은 참여 부탁드립니다!</span>
+                <span class="lang-block en">To ensure smooth operations and design a tailored training program for you,<br>we are conducting a survey on graduate students' intent to participate and needs. Thank you for your cooperation!</span>
+                <span class="lang-block zh">为了保障比赛的顺利筹备并构建最适合您的培训课程，<br>我们正在面向研究生进行参赛意향及需求调查。期待您的积极参与！</span>
             </p>
-            <a href="https://forms.gle/erRKdGJ6jyo1kPcy7" class="btn-submit" target="_blank">수요조사 참여 및 의견 제출하기</a>
+            <a href="https://forms.gle/erRKdGJ6jyo1kPcy7" class="btn-submit" target="_blank">
+                <span class="lang-block ko">수요조사 참여 및 의견 제출하기</span>
+                <span class="lang-block en">Go to Survey / Submit Opinions</span>
+                <span class="lang-block zh">参与需求调查及提交意见</span>
+            </a>
         </div>
 
     </div>
 
     <!-- 푸터 -->
     <div class="footer">
-        <p style="font-weight: bold; font-size: 13px; color: #444;">고려대학교 세종캠퍼스 대학원 연구교육팀</p>
+        <p style="font-weight: bold; font-size: 13px; color: #444;">
+            <span class="lang-block ko">고려대학교 세종캠퍼스 대학원 연구교육팀</span>
+            <span class="lang-block en">Korea University Sejong Campus Graduate Research Education Team</span>
+            <span class="lang-block zh">高丽大学世宗校区研究生院研究教育团队</span>
+        </p>
         <p style="margin-top: 5px; opacity: 0.8;">Copyright © Korea University Sejong Campus Graduate Research Education Team. All Rights Reserved.</p>
     </div>
 </div>
+
+<!-- 🌐 다국어 전환 자바스크립트 엔진 -->
+<script>
+    function switchLang(lang) {
+        // 1. body 클래스를 변경하여 CSS 토글 구동
+        document.body.className = 'lang-' + lang;
+        
+        // 2. 버튼 활성화(active) 상태 시각적 업데이트
+        const buttons = document.querySelectorAll('.lang-btn');
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.getAttribute('onclick').includes(lang)) {
+                btn.classList.add('active');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
