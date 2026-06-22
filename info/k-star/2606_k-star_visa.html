@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-STAR 비자트랙 신청 안내 (K-STAR Visa Track Guide)</title>
+    <style>
+        :root {
+            --ku-crimson: #8A1538;
+            --ku-charcoal: #4A5568;
+            --bg-light: #f8f9fa;
+            --text-dark: #2d3748;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7fafc;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .header {
+            background-color: var(--ku-crimson);
+            color: white;
+            padding: 25px;
+            border-radius: 6px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .header p {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .download-box {
+            background-color: var(--bg-light);
+            border-left: 4px solid var(--ku-crimson);
+            padding: 20px;
+            margin-bottom: 35px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .download-title {
+            font-weight: bold;
+            color: var(--ku-crimson);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .file-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .file-item {
+            margin-bottom: 8px;
+        }
+
+        .file-item a {
+            display: flex;
+            align-items: center;
+            color: #4a5568;
+            text-decoration: none;
+            padding: 8px 12px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .file-item a:hover {
+            border-color: var(--ku-crimson);
+            color: var(--ku-crimson);
+            background-color: #fffafb;
+        }
+
+        .file-icon {
+            margin-right: 8px;
+        }
+
+        .major-toggle-container {
+            margin-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+        }
+
+        .major-toggle-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--ku-charcoal);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .major-toggle-btn:hover {
+            background-color: #2d3748;
+        }
+
+        .major-content-box {
+            display: none;
+            margin-top: 15px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 2px solid var(--ku-charcoal);
+            border-radius: 6px;
+        }
+
+        .major-content-box.active {
+            display: block;
+        }
+
+        .major-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .major-table th, .major-table td {
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .major-table th {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .major-table tbody tr:hover {
+            background-color: #f7fafc;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #718096;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: var(--ku-crimson);
+        }
+
+        .tab-button.active {
+            color: var(--ku-crimson);
+            border-bottom: 2px solid var(--ku-crimson);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .meta-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+
+        .meta-table th, .meta-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .meta-table th {
+            background-color: var(--bg-light);
+            width: 25%;
+            color: #4a5568;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #1a202c;
+            border-left: 4px solid var(--ku-crimson);
+            padding-left: 10px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #718096;
+            background-color: var(--bg-light);
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 5px;
+            border-left: 3px solid #cbd5e0;
+        }
+
+        .highlight {
+            color: #e53e3e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>K-STAR 비자트랙 신청 안내</h1>
+        <p>고려대학교 세종캠퍼스 대학원연구교육팀 (Graduate School Research Education Team)</p>
+    </div>
+
+    <div class="download-box">
+        <div class="download-title">📁 첨부파일 양식 다운로드 (Attached Forms)</div>
+        <ul class="file-list">
+            <li class="file-item">
+                <a href="https://research.korea.ac.kr/front/attach/download/7c3a8b94-d122-4f9b-8833-5e53a58f5105/303" target="_blank"><span class="file-icon">📄</span> 1. K-STAR비자트랙 지원서 양식.hwp</a>
+            </li>
+            <li class="file-item">
+                <a href="https://research.korea.ac.kr/front/attach/download/7c3a8b94-d122-4f9b-8833-5e53a58f5105/304" target="_blank"><span class="file-icon">📄</span> 2. K-STAR비자트랙 추천서 양식(지도교수,일반).hwp</a>
+            </li>
+            <li class="file-item">
+                <a href="https://research.korea.ac.kr/front/attach/download/7c3a8b94-d122-4f9b-8833-5e53a58f5105/305" target="_blank"><span class="file-icon">📄</span> 3. K-STAR비자트랙 제출서류 양식(결격사유 자가점검서, 윤리서약서).hwp</a>
+            </li>
+        </ul>
+        
+        <div class="major-toggle-container">
+            <button class="major-toggle-btn" onclick="toggleMajorBox()">🔍 [클릭] 과학기술분야 대상 전공 목록 바로보기 (View Major List)</button>
+            <div id="majorContentBox" class="major-content-box">
+                <p style="margin-top: 0; font-weight: bold; color: var(--ku-charcoal); text-align: center;">💡 과학기술분야 전공 목록 (고려대학교 세종캠퍼스)</p>
+                <table class="major-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 45%;">학과명</th>
+                            <th style="width: 20%;">연구분야</th>
+                            <th style="width: 35%;">대분류</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>미래도시과학과</td><td style="text-align:center;">인공물</td><td>EI (건설/교통)</td></tr>
+                        <tr><td>미래모빌리티학과</td><td style="text-align:center;">인공물</td><td>EI (건설/교통)</td></tr>
+                        <tr><td>사이버보안학과</td><td style="text-align:center;">인공물</td><td>EE (정보/통신)</td></tr>
+                        <tr><td>생명정보공학과</td><td style="text-align:center;">인공물</td><td>EC (화공) + LA (융합)</td></tr>
+                        <tr><td>융합기술시스템공학협동과정</td><td style="text-align:center;">인공물</td><td>EE/EA (융합)</td></tr>
+                        <tr><td>융합반도체공학과</td><td style="text-align:center;">인공물</td><td>ED (전기/전자)</td></tr>
+                        <tr><td>전자·정보공학과</td><td style="text-align:center;">인공물</td><td>ED (전기/전자)</td></tr>
+                        <tr><td>제어계측공학과</td><td style="text-align:center;">인공물</td><td>ED (전기/전자)</td></tr>
+                        <tr><td>지능형반도체공학과</td><td style="text-align:center;">인공물</td><td>ED (전기/전자)</td></tr>
+                        <tr><td>환경공학과</td><td style="text-align:center;">인공물</td><td>EH (환경)</td></tr>
+                        <tr><td>환경기술·정책협동과정</td><td style="text-align:center;">인공물</td><td>EH (환경)</td></tr>
+                        <tr><td>컴퓨터소프트웨어학과<br>(컴퓨터정보학과)</td><td style="text-align:center;">인공물</td><td>EE (정보/통신)</td></tr>
+                        <tr><td>가속기과학과</td><td style="text-align:center;">자연</td><td>NB (물리학)</td></tr>
+                        <tr><td>기능성식품과학과</td><td style="text-align:center;">생명</td><td>LB (農林水産食品)</td></tr>
+                        <tr><td>빅데이터사이언스학과</td><td style="text-align:center;">자연</td><td>NA (수학/통계)</td></tr>
+                        <tr><td>식품규제과학과</td><td style="text-align:center;">생명</td><td>LC (보건의료)</td></tr>
+                        <tr><td>식품생명공학과</td><td style="text-align:center;">생명</td><td>LB (농림수산식품)</td></tr>
+                        <tr><td>신소재화학과</td><td style="text-align:center;">자연</td><td>NC (화학)</td></tr>
+                        <tr><td>약학과</td><td style="text-align:center;">생명</td><td>LC (보건의료)</td></tr>
+                        <tr><td>응용물리학과</td><td style="text-align:center;">자연</td><td>NB (물리학)</td></tr>
+                        <tr><td>응용수학과</td><td style="text-align:center;">자연</td><td>NA (수학)</td></tr>
+                        <tr><td>의용과학협동과정</td><td style="text-align:center;">융합</td><td>OA/LC (의공/뇌과학 계열 가능)</td></tr>
+                        <tr><td>첨단융합신약학과</td><td style="text-align:center;">생명</td><td>LC (보건의료)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-button active" onclick="openLang(event, 'ko')">한국어</button>
+        <button class="tab-button" onclick="openLang(event, 'en')">English</button>
+        <button class="tab-button" onclick="openLang(event, 'zh')">中文</button>
+    </div>
+
+    <div id="ko" class="tab-content active">
+        <table class="meta-table">
+            <tr>
+                <th>서류 제출 기한</th>
+                <td><strong>2026년 7월 3일(금) 15:00까지</strong></td>
+            </tr>
+            <tr>
+                <th>서류 제출 장소</th>
+                <td>소속 학과행정실</td>
+            </tr>
+            <tr>
+                <th>작성 원칙</th>
+                <td><span class="highlight">모든 서류는 한국어 작성이 원칙</span></td>
+            </tr>
+            <tr>
+                <th>면접 일정</th>
+                <td>2026년 7월 3째주 예정 (추후 안내)</td>
+            </tr>
+        </table>
+
+        <h2>1. K-STAR 비자트랙 제도 개요</h2>
+        <ul>
+            <li>K-STAR 비자트랙(Korea-Science & Technology Advanced Human-Resources Visa Track)은 국내 대학에서 양성된 외국인 과학기술 우수인재의 국내 정주 및 연구 지속을 지원하기 위해 법무부 출입국·외국인정책본부에서 운영하는 제도입니다.</li>
+        </ul>
+
+        <h2>2. 지원 대상(지원 자격) - 필수 요건 (3가지 모두 충족해야 함)</h2>
+        <ol>
+            <li><strong>아래 사항 중 하나에 해당하는 자</strong>
+                <ul>
+                    <li>본교 석사 학위 취득자(2026년 2월) 또는 취득 후 1년 이내</li>
+                    <li>본교 박사 학위 과정 재학생, 수료생 또는 박사 학위 취득 후 1년 이내</li>
+                    <li>본교 소속 박사 후 연구원(Postdoc)으로 과학 기술 분야 연구에 참여 중인 자</li>
+                </ul>
+                <div class="note">※ 석·박사통합과정의 경우, 석사 과정 수준의 교육 과정을 수료하고 박사 과정에 해당하는 교육 과정에 재학 중인 경우 인정</div>
+            </li>
+            <li>본교에서 인정하는 과학기술분야 전공자 또는 연구 참여자 (세부 전공 리스트는 상단 목록 참고)</li>
+            <li>논문·특허·과제·수상 등으로 본인의 연구 역량을 객관적으로 입증하고, 동시에 국내연구·취업·창업 및 한국어 학습 계획 등 한국 정주 의지를 확인할 수 있는 자</li>
+        </ol>
+
+        <h2>3. 주요 혜택</h2>
+        <ul>
+            <li>취업 여부와 무관하게 K-STAR 거주자격(F-2-7S)으로 체류 가능 (최장 5년)</li>
+            <li>일정 요건 충족 시 → 영주자격(F-5-S1) → 우수인재 특별귀화 신청 가능</li>
+        </ul>
+
+        <h2>4. 우수인재추천서 발급 및 유의 사항 (중요)</h2>
+        <ol>
+            <li>우수 인재로 최종 선발된 학생에게는 부총장 명의의 ‘우수인재추천서’가 발급 됩니다.</li>
+            <li>해당 추천서는 발급 일로부터 1년 간 유효하며, 유효 기간 내에 체류 자격 변경(F-2-7S) 신청 시 활용할 수 있습니다.</li>
+            <li>우수인재추천서는 F-2-7S 체류 자격 변경을 위한 필수 제출 서류 중 하나 이며, 그 외 체류자격 변경에 필요한 서류는 학생 본인이 직접 준비하여 출입국·외국인관서에 제출해야 합니다.</li>
+            <li>체류자격 변경 절차 및 제출 서류에 대한 상세 안내는, 우수인재로 최종 선발되어 추천서 발급 시 대학원연구교육팀에서 별도로 안내할 예정이며, 절차 진행 중 학교의 도움이 필요한 경우 관련 지원을 제공할 예정 입니다.</li>
+        </ol>
+
+        <h2>5. 필수 제출 서류 (모든 서류는 반드시 한국어로 작성)</h2>
+        <ul>
+            <li>1) K-STAR 비자트랙 지원서</li>
+            <li>2) 지도교수 추천서</li>
+            <li>3) 일반추천서 1부 (반드시 한국인이 작성, 교내 구성원으로 한정, 지도교수 제외)</li>
+            <li>4) 연구 실적 및 연구 역량을 객관적으로 입증할 수 있는 자료 인쇄본</li>
+            <li>5) 출입국 사실증명 (불법체류 이력 및 현재 체류자격 확인용, 학생이 직접 발급 받아야 함)</li>
+            <li>6) 결격사유 자가점검서</li>
+            <li>7) 윤리 서약서</li>
+            <li>8) 졸업생_학위수여증명서(석사 또는 박사), 박사후연구원_재직증명서</li>
+        </ul>
+
+        <h2>6. 선택 제출 서류</h2>
+        <ul>
+            <li>1) TOPIK 성적표(지원서에 기재한 경우)</li>
+            <li>2) 기타 제반 서류(필수 제출 서류 이외에 본인 판단 하에 더 제출 하고자 하는 서류 일체)</li>
+        </ul>
+
+        <h2>7. 서류 작성, 제출, 기타 유의 사항</h2>
+        <ul>
+            <li>모든 서류는 한국어 작성이 원칙이며, 외국어로 작성한 서류는 인정되지 않습니다.</li>
+            <li>서류 양식의 임의 변경은 절대 불가합니다.</li>
+            <li>논문, 특허, 연구과제, 수상 실적 등 연구 실적 증빙 자료의 인쇄본은 반드시 제출해야 합니다.</li>
+            <li>제출 서류의 허위·과장 기재, 사실과 다른 내용이 확인될 경우, 추천이 취소되거나 향후 불익이 발생할 수 있습니다.</li>
+            <li>면접은 한국어와 영어로 병행하여 진행되며, 연구 이해도·정주 의지·한국 사회 적응 가능성 등을 종합적으로 평가합니다.</li>
+            <li>본 K-STAR 비자 트랙 제도는 엄격한 서류 심사와 면접 등을 거쳐 운영될 예정으로, 해당 제도에 지원한다고 해서 반드시 선발 되는 것이 아님을 유의 하시기 바랍니다.</li>
+        </ul>
+    </div>
+
+    <div id="en" class="tab-content">
+        <table class="meta-table">
+            <tr>
+                <th>Submission Deadline</th>
+                <td><strong>Until July 3, 2026 (Fri) 15:00</strong></td>
+            </tr>
+            <tr>
+                <th>Submission Location</th>
+                <td>Department Administrative Office</td>
+            </tr>
+            <tr>
+                <th>Language Principle</th>
+                <td><span class="highlight">All documents must be written in Korean</span></td>
+            </tr>
+            <tr>
+                <th>Interview Schedule</th>
+                <td>Expected in the 3rd week of July 2026 (To be announced)</td>
+            </tr>
+        </table>
+
+        <h2>1. Overview of the K-STAR Visa Track</h2>
+        <ul>
+            <li>The K-STAR Visa Track (Korea-Science & Technology Advanced Human-Resources Visa Track) is a program operated by the Korea Immigration Service of the Ministry of Justice to support the domestic settlement and continuous research of outstanding foreign science and technology talents trained at Korean universities.</li>
+        </ul>
+
+        <h2>2. Eligibility (Must meet all 3 mandatory requirements)</h2>
+        <ol>
+            <li><strong>Must fall under one of the following categories:</strong>
+                <ul>
+                    <li>Graduates who obtained a Master's degree from KU Sejong (Feb 2026) or within 1 year after graduation.</li>
+                    <li>Enrolled students, completed coursework students in a Doctoral program, or individuals within 1 year after obtaining a Doctoral degree from KU Sejong.</li>
+                    <li>Postdoctoral researchers affiliated with KU Sejong participating in research in science and technology fields.</li>
+                </ul>
+                <div class="note">※ For integrated Master's & Doctoral programs, students who completed coursework equivalent to a Master's program and are currently enrolled in the Doctoral curriculum are eligible.</div>
+            </li>
+            <li>Majoring in a science and technology field recognized by KU Sejong or participating in relevant research (Refer to the upper section for the major list).</li>
+            <li>Able to objectively prove research capabilities through papers, patents, projects, awards, etc., and demonstrate a strong willingness to settle in Korea (including plans for domestic research, employment, entrepreneurship, and Korean language learning).</li>
+        </ol>
+
+        <h2>3. Key Benefits</h2>
+        <ul>
+            <li>Eligible to stay under the K-STAR residency status (F-2-7S) regardless of employment status (up to 5 years).</li>
+            <li>Upon meeting certain requirements → Permanent Residency (F-5-S1) → Eligible to apply for Special Naturalization for Outstanding Talents.</li>
+        </ul>
+
+        <h2>4. Issuance of Recommendation Letter & Important Cautions</h2>
+        <ol>
+            <li>Sincerely qualified students will be issued a 'Recommendation Letter for Outstanding Talents' under the name of the Vice President.</li>
+            <li>The recommendation letter is valid for 1 year from the date of issuance and can be used to apply for a change of status (F-2-7S) within its validity period.</li>
+            <li>The recommendation letter is a mandatory document for changing to the F-2-7S visa. Other required documents must be prepared directly by the student and submitted to the Immigration Office.</li>
+            <li>Detailed guidance on status change procedures and documents will be provided separately by the Graduate School Research Education Team upon final selection. Academic/administrative support will be provided if required.</li>
+        </ol>
+
+        <h2>5. Mandatory Submission Documents (Must be written in Korean)</h2>
+        <ul>
+            <li>1) K-STAR Visa Track Application Form</li>
+            <li>2) Advisor's Recommendation Letter</li>
+            <li>3) General Recommendation Letter (Must be written by a Korean citizen, limited to KU campus members, excluding the advisor)</li>
+            <li>4) Printed copies of evidence proving research achievements and capabilities</li>
+            <li>5) Certificate of Facts on Entry & Exit (To verify immigration history and current visa status; must be issued by the student)</li>
+            <li>6) Disqualification Self-Check List</li>
+            <li>7) Ethics Pledge</li>
+            <li>8) For Graduates: Certificate of Degree (Master's/Doctoral) / For Postdocs: Certificate of Employment</li>
+        </ul>
+
+        <h2>6. Optional Documents</h2>
+        <ul>
+            <li>1) TOPIK Score Report (Mandatory if indicated on the application form)</li>
+            <li>2) Other supporting documents (Any materials that prove your research capability)</li>
+        </ul>
+
+        <h2>7. Document Preparation, Submission, and General Notes</h2>
+        <ul>
+            <li>In principle, all documents must be written in Korean; documents written in foreign languages will not be recognized.</li>
+            <li>Arbitrary modification of the document forms is strictly prohibited.</li>
+            <li>Printed evidence of research achievements such as papers, patents, projects, and awards must be submitted.</li>
+            <li>If any false or exaggerated information is found, the recommendation may be cancelled, and future disadvantages may apply.</li>
+            <li>Interviews will be conducted in both Korean and English, comprehensively evaluating research understanding, willingness to settle down, and adaptability to Korean society.</li>
+            <li>Please note that applying does not guarantee selection, as it undergoes strict document evaluation and interviews.</li>
+        </ul>
+    </div>
+
+    <div id="zh" class="tab-content">
+        <table class="meta-table">
+            <tr>
+                <th>材料提交截止时间</th>
+                <td><strong>截至2026年 7月 3日(金) 15:00</strong></td>
+            </tr>
+            <tr>
+                <th>材料提交地点</th>
+                <td>所属系行政办公室 (학과행정실)</td>
+            </tr>
+            <tr>
+                <th>填写原则</th>
+                <td><span class="highlight">所有材料原则上须用韩文填写</span></td>
+            </tr>
+            <tr>
+                <th>面试日程</th>
+                <td>预计2026年7月第三周（另行通知）</td>
+            </tr>
+        </table>
+
+        <h2>1. K-STAR 签证项目概述</h2>
+        <ul>
+            <li>K-STAR 签证项目（Korea-Science & Technology Advanced Human-Resources Visa Track）是由法务部出入境·外国人政策本部运营的制度，旨在支持在国内大学培养的外国优秀科技人才在韩定居并持续进行研究。</li>
+        </ul>
+
+        <h2>2. 申请对象（申请资格）— 必备条件（须同时满足以下3项）</h2>
+        <ol>
+            <li><strong>属于以下条件之一者：</strong>
+                <ul>
+                    <li>本校硕士学位获得者（2026年2月）或毕业后1年内</li>
+                    <li>本校博士学位课程在读生、结业生或获得博士学位后1年内</li>
+                    <li>隶属于本校的博士后研究员（Postdoc），且正在参与科学技术领域的研究</li>
+                </ul>
+                <div class="note">※ 硕博连读课程者，若已修满硕士阶段课程并在博士阶段在读，亦予以认可。</div>
+            </li>
+            <li>本校认可的科学技术领域专业毕业或研究参与者（详细专业列表请参考上端列表）</li>
+            <li>能够通过论文、专利、课题、获奖等客观证明自身研究能力，并能确认在韩定居意愿（包括在韩研究、就业、创业及韩语学习计划等）者。</li>
+        </ol>
+
+        <h2>3. 主要福利</h2>
+        <ul>
+            <li>无论是否就业，均可持 K-STAR 居住资格（F-2-7S）在韩滞留（最长5年）</li>
+            <li>满足一定条件时 → 永驻资格（F-5-S1) → 可申请优秀人才特别归化（入籍）</li>
+        </ul>
+
+        <h2>4. 优秀人才推荐信签发及注意事项（重要）</h2>
+        <ol>
+            <li>最终被选拔为优秀人才的学生将获得以副校长名义签发的“优秀人才推荐信”。</li>
+            <li>该推荐信自签发之日起1年内有效，可在有效期内申请变更滞留资格（F-2-7S）时使用。</li>
+            <li>优秀人才推荐信是变更 F-2-7S 滞留资格的必备材料之一，其他变更所需的材料须由学生本人直接准备并提交至出入境·外国人机关。</li>
+            <li>滞留资格变更程序及提交材料的详细指南将在最终选拔并签发推荐信时，由研究生院研究教育团队另행通知，进行过程中如需学校协助，将提供相关支持。</li>
+        </ol>
+
+        <h2>5. 必备提交材料（所有材料必须用韩文填写）</h2>
+        <ul>
+            <li>1) K-STAR 签证项目申请书</li>
+            <li>2) 指导教授推荐信</li>
+            <li>3) 普通推荐信 1份（必须由韩国人填写，限校内成员，指导教授除外）</li>
+            <li>4) 能够客观证明研究业绩及研究能力的佐证材料印刷版</li>
+            <li>5) 出入境事实证明（用于确认有无非法滞留记录及当前滞留资格，须学生本人直接开具）</li>
+            <li>6) 资格不符事项自我检查表</li>
+            <li>7) 伦理誓约书</li>
+            <li>8) 毕业生：学位授予证明书（硕士或博士） / 博士后：在职证明书</li>
+        </ul>
+
+        <h2>6. 选择提交材料</h2>
+        <ul>
+            <li>1) TOPIK 成绩单（仅限在申请书上填写者）</li>
+            <li>2) 其他证明材料（可自行判断并提交用于证明研究能力的材料）</li>
+        </ul>
+
+        <h2>7. 材料填写、提交及其他注意事项</h2>
+        <ul>
+            <li>所有材料原则上须用韩文填写，不认可外文填写的材料。</li>
+            <li>绝对不可任意更改材料格式。</li>
+            <li>必须提交论文、专利、研究课题、获奖业绩等研究成果证明材料的印刷版。</li>
+            <li>若发现提交材料有虚假、夸大记载或与事实不符的内容，可能会取消推荐或在未来产生不利影响。</li>
+            <li>面试将以韩语和英语共同进行，综合评价对研究的理解度、定居意愿、韩国社会适应能力等。</li>
+            <li>本 K-STAR 签证项目将经过严格的材料审查和面试进行运营，请注意提交申请并不意味着一定会被选拔。</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function openLang(evt, langName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(langName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function toggleMajorBox() {
+        var box = document.getElementById("majorContentBox");
+        if (box.classList.contains("active")) {
+            box.classList.remove("active");
+        } else {
+            box.classList.add("active");
+        }
+    }
+</script>
+
+</body>
+</html>
